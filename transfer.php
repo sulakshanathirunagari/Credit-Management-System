@@ -88,8 +88,12 @@ if (!$link) {
 
             $query = "update `user details` set Credit=Credit+" . $_POST['credits_tr'] . " where Name='" . $_POST['to_user'] . "'";
             mysqli_query($link,$query);
+            echo "<script type='text/javascript'>";
+           echo "alert('Successfully Transferred!!')";
+           echo "</script>";
+            echo "<script>window.location.href='users.php'</script>";
 
-            header("Location: users.php");
+            
         }
     }
 
@@ -127,7 +131,7 @@ if (!$link) {
             
             <fieldset>
                 <legend> Transfer details</legend>
-                Credits: <input type="number" name="credits_tr" min =0 value=1 required>
+                Credits: <input type="number" name="credits_tr" min =1 value=1 required>
                 <br><br>
                 Transfer to: <select name="to_user" required>
                     <option value =""></option>
